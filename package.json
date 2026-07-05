@@ -1,0 +1,14 @@
+{
+  "name": "healthguard-ai",
+  "version": "1.0.0",
+  "description": "HealthGuard AI Hub - MVP Demo & 2.0 Startup Blueprint Explorer",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "dev": "serve"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

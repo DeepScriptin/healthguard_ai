@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthGuard AI Hub — Explainable Healthcare Decision Intelligence</title>
+  <meta name="description" content="HealthGuard AI decision intelligence platform showcasing claims-fraud detection, ADR risk scoring, and interactive 2.0 startup blueprint.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside>
+    <div class="logo-container">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="logo-text-main">HealthGuard AI</span>
+        <span class="logo-text-sub">Decision Hub</span>
+      </div>
+    </div>
+
+    <div class="menu-label">Operations (MVP)</div>
+    <nav>
+      <a href="#" class="nav-item active" data-tab="overview">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="9" rx="1"/>
+          <rect x="14" y="3" width="7" height="5" rx="1"/>
+          <rect x="14" y="12" width="7" height="9" rx="1"/>
+          <rect x="3" y="16" width="7" height="5" rx="1"/>
+        </svg>
+        <span>Executive Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" data-tab="claims">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+        </svg>
+        <span>Claims Auditor</span>
+      </a>
+      <a href="#" class="nav-item" data-tab="adr">
+        <svg viewBox="0 0 24 24">
+          <path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-15zM10.5 4.5C10.5 3.67 11.17 3 12 3s1.5.67 1.5 1.5v15c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5v-15z"/>
+        </svg>
+        <span>ADR Risk Predictor</span>
+      </a>
+    </nav>
+
+    <div class="menu-label">Future & Strategy</div>
+    <nav>
+      <a href="#" class="nav-item" data-tab="roadmap">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 20h6v2H9zm8-4h3v2h-3zm-2-4h5v2h-5zm-3-4h6v2h-6zm-5 8h3v2H7zm-2-4h5v2H5zm-3-4h6v2H2z"/>
+        </svg>
+        <span>2.0 Startup Blueprint</span>
+      </a>
+      <a href="#" class="nav-item" data-tab="audit-report">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <span>Blueprint Audit Log</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div>Target System:</div>
+      <strong>ABDM & DPDP Compliant</strong>
+    </div>
+  </aside>
+
+  <!-- Main Content Layout -->
+  <main>
+    <header>
+      <div class="header-title">
+        <h1 id="main-header-title">Executive Dashboard</h1>
+        <p id="main-header-subtitle">Real-time explainable billing auditing & drug safety checker</p>
+      </div>
+      <div class="header-actions">
+        <div class="status-indicator">
+          <div class="pulse-dot"></div>
+          <span>FastAPI Engine Online</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Metrics Stats Grid (Persistent across app top/overview) -->
+    <section class="metrics-grid">
+      <div class="glass-card metric-card" id="metric-total-claims">
+        <div class="metric-icon-box claims-accent">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div class="metric-details">
+          <span class="metric-label">Claims Audited</span>
+          <span class="metric-value" id="val-claims-count">5</span>
+        </div>
+      </div>
+      <div class="glass-card metric-card" id="metric-fraud-flags">
+        <div class="metric-icon-box fraud-accent">
+          <svg viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+        </div>
+        <div class="metric-details">
+          <span class="metric-label">High-Risk Fraud Flags</span>
+          <span class="metric-value" id="val-fraud-flags">3</span>
+        </div>
+      </div>
+      <div class="glass-card metric-card" id="metric-leakage-saved">
+        <div class="metric-icon-box savings-accent">
+          <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div class="metric-details">
+          <span class="metric-label">Leakage Prevented</span>
+          <span class="metric-value" id="val-leakage">₹4,53,000</span>
+        </div>
+      </div>
+      <div class="glass-card metric-card" id="metric-adr-scanned">
+        <div class="metric-icon-box adr-accent">
+          <svg viewBox="0 0 24 24"><path d="M19 10.5V20a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v6.5m-3-4H8m8 4H8m5 4H8"/></svg>
+        </div>
+        <div class="metric-details">
+          <span class="metric-label">ADR Checks Run</span>
+          <span class="metric-value" id="val-adr-checks">24</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT VIEWS -->
+
+    <!-- 1. Executive Dashboard (Overview) -->
+    <div id="view-overview" class="tab-content active">
+      <div class="overview-layout">
+        <!-- Main Panel: Quick summary list -->
+        <div class="glass-card panel-card">
+          <div class="panel-header">
+            <h3>Recent Claims Alerts (Fraud Audit)</h3>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('claims')">View Queue</button>
+          </div>
+          <div class="claims-list-mini" id="overview-claims-list">
+            <!-- Populated via Javascript -->
+          </div>
+        </div>
+
+        <!-- Sidebar Panel: Safety Checks & Live Feed -->
+        <div class="glass-card panel-card">
+          <div class="panel-header">
+            <h3>ADR Engine Quick Check</h3>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('adr')">Open Predictor</button>
+          </div>
+          <div class="quick-check-form">
+            <p class="description-text">Simulate a quick prescription risk assessment before committing to EHR.</p>
+            <div class="form-group">
+              <label for="qc-patient-age">Patient Age</label>
+              <input type="number" id="qc-patient-age" class="form-control" value="65">
+            </div>
+            <div class="form-group">
+              <label for="qc-current-drug">Current Drug</label>
+              <select id="qc-current-drug" class="form-control">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qc-new-drug">Proposed Drug</label>
+              <select id="qc-new-drug" class="form-control">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <button class="btn btn-primary w-full" id="btn-quick-check">Analyze Risk Score</button>
+            <div id="quick-check-result" class="quick-result-card hidden">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Claims Auditor Queue (MVP Option A) -->
+    <div id="view-claims" class="tab-content">
+      <div class="auditor-layout">
+        <!-- Claims List Box -->
+        <div class="glass-card list-panel">
+          <div class="panel-header-search">
+            <input type="text" id="claims-search" class="form-control" placeholder="Search by patient, provider, CPT...">
+            <div class="filter-group">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn text-red" data-filter="High">High Risk</button>
+              <button class="filter-btn text-yellow" data-filter="Medium">Medium</button>
+            </div>
+          </div>
+          <div class="claims-list-container" id="claims-list-body">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Claims Inspector Box -->
+        <div class="glass-card inspector-panel">
+          <div id="empty-inspector-state" class="empty-state">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <p>Select a claim from the queue to run SHAP Explainable AI and generate LLM reports.</p>
+          </div>
+          <div id="inspector-content" class="inspector-content hidden">
+            <!-- Header Info -->
+            <div class="inspector-header">
+              <div class="cl-id-tag" id="ins-claim-id">HG-CLM-XXXX</div>
+              <div class="risk-badge" id="ins-risk-badge">HIGH</div>
+            </div>
+            
+            <div class="cl-headline">
+              <h2 id="ins-patient-name">Patient Name</h2>
+              <div class="cl-summary-sub" id="ins-provider-name">Provider Name</div>
+            </div>
+
+            <!-- Grid details -->
+            <div class="details-grid">
+              <div class="detail-cell">
+                <span class="cell-label">Diagnosis (ICD-10)</span>
+                <span class="cell-val" id="ins-diagnosis">Code - Description</span>
+              </div>
+              <div class="detail-cell">
+                <span class="cell-label">Procedure (CPT)</span>
+                <span class="cell-val" id="ins-procedure">Code - Description</span>
+              </div>
+              <div class="detail-cell">
+                <span class="cell-label">Claim Amount</span>
+                <span class="cell-val accent-val" id="ins-amount">₹0.00</span>
+              </div>
+              <div class="detail-cell">
+                <span class="cell-label">Risk Probability</span>
+                <span class="cell-val accent-val" id="ins-probability">0%</span>
+              </div>
+            </div>
+
+            <hr class="panel-divider">
+
+            <!-- Explainable AI (SHAP) Layer -->
+            <div class="xai-section">
+              <div class="section-title-xai">
+                <h4>Explainable AI (SHAP Feature Attribution)</h4>
+                <span class="info-tooltip">ℹ️ Shows how features pushed the Isolation Forest/XGBoost risk score higher</span>
+              </div>
+              <div class="shap-chart-container" id="ins-shap-bars">
+                <!-- SVG Bars built dynamically -->
+              </div>
+            </div>
+
+            <hr class="panel-divider">
+
+            <!-- LLM Report Generator -->
+            <div class="llm-section">
+              <div class="llm-header-actions">
+                <h4>LLM Clinical Audit Report</h4>
+                <button class="btn btn-primary btn-sm btn-icon" id="btn-generate-report">
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2v20M2.05 12h19.9"/></svg>
+                  <span>Re-Generate Explanation</span>
+                </button>
+              </div>
+              <div class="llm-output-box" id="ins-llm-report">
+                <!-- Text typed dynamically or instantly loaded -->
+              </div>
+              <div class="action-footer">
+                <div class="hitl-indicator">
+                  <span class="hitl-dot"></span>
+                  <span>Human-in-the-loop: Awaiting Auditor Signature</span>
+                </div>
+                <div class="footer-buttons">
+                  <button class="btn btn-secondary" onclick="actionClaim('reject')">Flag & Reject</button>
+                  <button class="btn btn-success" onclick="actionClaim('approve')">Sign & Approve</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ADR Risk Predictor (MVP Option B) -->
+    <div id="view-adr" class="tab-content">
+      <div class="adr-predictor-layout">
+        <!-- Inputs Card -->
+        <div class="glass-card adr-input-card">
+          <div class="panel-header">
+            <h3>Prescription Safety Check</h3>
+          </div>
+          <div class="adr-form">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="adr-pt-name">Patient Name</label>
+                <input type="text" id="adr-pt-name" class="form-control" value="Aarav Sharma">
+              </div>
+              <div class="form-group">
+                <label for="adr-pt-age">Age</label>
+                <input type="number" id="adr-pt-age" class="form-control" value="68">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="adr-pt-gender">Gender</label>
+                <select id="adr-pt-gender" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="adr-pt-comorbidities">Comorbidities / History</label>
+                <select id="adr-pt-comorbidities" class="form-control" multiple>
+                  <option value="renal">Chronic Kidney Disease</option>
+                  <option value="cardio" selected>Coronary Artery Disease</option>
+                  <option value="gastric">Peptic Ulcer History</option>
+                  <option value="liver">Hepatic Impairment</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Current Medications</label>
+              <div class="medications-checkbox-grid" id="adr-current-meds-grid">
+                <!-- Checkboxes populated via JS -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="adr-new-med">Proposed New Drug</label>
+              <select id="adr-new-med" class="form-control">
+                <!-- Options populated via JS -->
+              </select>
+            </div>
+
+            <button class="btn btn-success w-full" id="btn-run-adr-check">Run ADR ML Audit</button>
+          </div>
+        </div>
+
+        <!-- Outputs Card -->
+        <div class="glass-card adr-output-card">
+          <div id="adr-empty-state" class="empty-state">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <p>Run the ADR ML Audit to calculate side-effect probabilities, identify interactions, and extract SHAP attribution values.</p>
+          </div>
+          <div id="adr-output-content" class="adr-output-content hidden">
+            
+            <!-- Risk Gauge & Headline -->
+            <div class="adr-result-header">
+              <div class="risk-gauge-box">
+                <div class="gauge-value" id="adr-risk-gauge-val">78%</div>
+                <div class="gauge-label">ADR RISK</div>
+              </div>
+              <div class="adr-result-summary">
+                <h3 id="adr-risk-summary-title">High Risk Alert</h3>
+                <p class="description-text" id="adr-risk-summary-text">Significant drug-drug interaction detected.</p>
+              </div>
+            </div>
+
+            <hr class="panel-divider">
+
+            <!-- Specific Interaction Alert -->
+            <div class="interaction-alert-box alert-high" id="adr-interaction-box">
+              <h5 id="adr-interact-title">Interaction: Warfarin + Aspirin</h5>
+              <p id="adr-interact-mechanism">Synergistic antiplatelet and anticoagulant effects. Increases risk of severe gastrointestinal bleeding.</p>
+            </div>
+
+            <!-- Alternative Recommendations -->
+            <div class="alternatives-box">
+              <h5>Safer Clinical Alternatives</h5>
+              <ul class="alternatives-list" id="adr-alternatives-list">
+                <!-- Loaded via JS -->
+              </ul>
+            </div>
+
+            <hr class="panel-divider">
+
+            <!-- SHAP Explainability -->
+            <div class="xai-section">
+              <h4>Explainable AI (SHAP Weights)</h4>
+              <div class="shap-chart-container" id="adr-shap-bars">
+                <!-- SVG Bars -->
+              </div>
+            </div>
+
+            <hr class="panel-divider">
+
+            <!-- LLM Narrative Explanation -->
+            <div class="llm-section">
+              <h4>Gemini Clinical Explanation</h4>
+              <div class="llm-output-box" id="adr-llm-explanation">
+                <!-- Typed via JS -->
+              </div>
+              <div class="action-footer">
+                <div class="hitl-indicator">
+                  <span class="hitl-dot"></span>
+                  <span>Human-in-the-loop Review Mandatory</span>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btn-adr-signoff">Doctor Sign-Off & Save</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 2.0 Startup Blueprint Explorer (Startup Blueprint) -->
+    <div id="view-roadmap" class="tab-content">
+      <div class="roadmap-layout">
+        <!-- Column 1: System Architecture Map -->
+        <div class="glass-card map-panel">
+          <div class="panel-header">
+            <h3>Unified 2.0 Architecture Map</h3>
+            <span class="badge badge-purple">Startup Blueprint</span>
+          </div>
+          
+          <div class="architecture-diagram">
+            <div class="arch-layer">
+              <span class="layer-title">Portal Gateways</span>
+              <div class="layer-nodes">
+                <div class="arch-node node-ext" title="Patient Mobile App - Ph3">Patient Mobile App</div>
+                <div class="arch-node node-ext" title="Doctor Prescribing Copilot - Ph2">Doctor Copilot</div>
+                <div class="arch-node node-mvp" title="Hospital Auditor Dashboard - MVP">Auditor Portal</div>
+                <div class="arch-node node-ext" title="Insurer Claim Review - Ph2">Insurer Portal</div>
+              </div>
+            </div>
+            
+            <div class="connector-arrow">▼</div>
+
+            <div class="arch-layer">
+              <span class="layer-title">EHR Integration Layer</span>
+              <div class="layer-nodes">
+                <div class="arch-node node-int">ABDM ABHA Logs</div>
+                <div class="arch-node node-int">Patient EHR Charts</div>
+                <div class="arch-node node-int">Lab & Pharmacy Feeds</div>
+              </div>
+            </div>
+
+            <div class="connector-arrow">▼</div>
+
+            <div class="arch-layer">
+              <span class="layer-title">AI Decision Intelligence Layer</span>
+              <div class="layer-nodes">
+                <div class="arch-node node-mvp highlight-node" title="XGBoost & LightGBM powered ADR prediction">ADR Engine (MVP)</div>
+                <div class="arch-node node-mvp highlight-node" title="Isolation Forest powered fraud detection">Fraud Engine (MVP)</div>
+                <div class="arch-node node-ext" title="Graph neural network for complex drug networks">Knowledge Graph</div>
+              </div>
+            </div>
+
+            <div class="connector-arrow">▼</div>
+
+            <div class="arch-layer">
+              <span class="layer-title">Explainability & Reasoning Layer</span>
+              <div class="layer-nodes">
+                <div class="arch-node node-mvp" title="SHAP Feature Attribution">SHAP (MVP)</div>
+                <div class="arch-node node-mvp" title="Groq/Gemini Report Writer">LLM Narrative (MVP)</div>
+              </div>
+            </div>
+
+            <div class="connector-arrow">▼</div>
+
+            <div class="arch-layer">
+              <span class="layer-title">Data Storage & Streaming</span>
+              <div class="layer-nodes">
+                <div class="arch-node node-db" title="PostgreSQL structured claims">Postgres DB</div>
+                <div class="arch-node node-ext" title="Apache Kafka streaming - Ph3">Apache Kafka</div>
+                <div class="arch-node node-ext" title="MongoDB Unstructured - Ph2">MongoDB / Redis</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="diagram-legend">
+            <div class="legend-item"><span class="legend-color legend-mvp"></span><span>MVP Core (Built)</span></div>
+            <div class="legend-item"><span class="legend-color legend-ext"></span><span>2.0 Scaling (Future)</span></div>
+            <div class="legend-item"><span class="legend-color legend-int"></span><span>Integration Gates</span></div>
+          </div>
+        </div>
+
+        <!-- Column 2: Phase-by-Phase Roadmap Details -->
+        <div class="glass-card roadmap-details-panel">
+          <div class="panel-header">
+            <h3>Scale-Up Execution Roadmap</h3>
+          </div>
+          
+          <div class="roadmap-accordion">
+            <div class="roadmap-step active" id="step-ph1">
+              <div class="step-header" onclick="toggleRoadmapStep('ph1')">
+                <div class="step-number">Phase 1</div>
+                <div class="step-title-group">
+                  <h4>Core Engine & Single Auditor Portal</h4>
+                  <span class="step-timeline">Months 0 - 3 (MVP Target)</span>
+                </div>
+              </div>
+              <div class="step-body">
+                <p>Establishing baseline predictive performance and auditor confidence.</p>
+                <ul>
+                  <li><strong>Models:</strong> Bootstrap ADR and Claims Fraud engines using synthetic/public databases (FDA FAERS, Kaggle claims).</li>
+                  <li><strong>XAI Layer:</strong> Wire SHAP to output exact mathematical feature impact values.</li>
+                  <li><strong>Single Portal:</strong> Build claim reviewer dashboard (this app's main layout) demonstrating transparent ROI metrics.</li>
+                  <li><strong>LLM Generator:</strong> Wire a single-purpose Gemini API prompt to translate raw SHAP vectors into clinical text reports.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-step" id="step-ph2">
+              <div class="step-header" onclick="toggleRoadmapStep('ph2')">
+                <div class="step-number">Phase 2</div>
+                <div class="step-title-group">
+                  <h4>Clinical Integration & Co-Pilots</h4>
+                  <span class="step-timeline">Months 3 - 6 (Scale-Up)</span>
+                </div>
+              </div>
+              <div class="step-body">
+                <p>Deploying tools directly in the clinical pathway for proactive safety checks.</p>
+                <ul>
+                  <li><strong>Doctor Copilot:</strong> Real-time drug-drug interaction warning integrated into clinical prescription flow.</li>
+                  <li><strong>Insurance Gateways:</strong> Auto-generation of structured claims pre-vetted by the fraud engine to avoid clinic audits.</li>
+                  <li><strong>MongoDB:</strong> Add unstructured storage to store medical text notes alongside tabular PostgreSQL database.</li>
+                  <li><strong>Pilot Clinic MoUs:</strong> Secure first local pilot Clinic partner under DPDP 2023 de-identification agreements.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="roadmap-step" id="step-ph3">
+              <div class="step-header" onclick="toggleRoadmapStep('ph3')">
+                <div class="step-number">Phase 3</div>
+                <div class="step-title-group">
+                  <h4>Enterprise Command Center & Wearables</h4>
+                  <span class="step-timeline">Months 6+ (Full Ecosystem)</span>
+                </div>
+              </div>
+              <div class="step-body">
+                <p>Transforming into a comprehensive population decision intelligence network.</p>
+                <ul>
+                  <li><strong>Hospital Command Center:</strong> Multi-role dashboard indicating real-time bed capacity, clinical risk flags, and emergency metrics.</li>
+                  <li><strong>Wearable Feed:</strong> Stream heart rate, SpO2, and compliance metrics from patient smartwatch APIs.</li>
+                  <li><strong>Streaming Pipeline:</strong> Integrate Apache Kafka to stream high-frequency patient biometric telemetry.</li>
+                  <li><strong>Patient App:</strong> Launch B2C patient application for medication reminders and side-effect reporting.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Audit & Compliance Log (Blueprint Audit) -->
+    <div id="view-audit-report" class="tab-content">
+      <div class="audit-report-layout">
+        <!-- Card 1: Executive Audit Report -->
+        <div class="glass-card audit-full-card">
+          <div class="panel-header">
+            <h3>Blueprint Scoping Audit Report</h3>
+            <span class="badge badge-green">Audit Verified</span>
+          </div>
+
+          <div class="audit-intro">
+            <p><strong>Audited Documents:</strong> <code>HealthGuard_AI_MVP_Blueprint.docx</code> & <code>HealthGuard_AI_2.0_Startup_Blueprint.docx</code></p>
+            <p><strong>Rationale:</strong> Scoping down the startup blueprint to an MVP is essential to preserve cash, secure pilot agreements, and build trust in clinical models before scaling infrastructure.</p>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dimension</th>
+                  <th>Startup Blueprint (v2.0)</th>
+                  <th>MVP Blueprint (v1.0)</th>
+                  <th>Audit Resolution / Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Scope</strong></td>
+                  <td>12 Core modules, 4 parallel dashboards, patient-facing app, wearables, voice AI.</td>
+                  <td>2 core engines (ADR & Fraud), 1 auditor dashboard.</td>
+                  <td class="resolution-cell"><strong>Cuts scope by 80%.</strong> Prevents multi-product development paralysis. Focuses on the most immediate financial ROI.</td>
+                </tr>
+                <tr>
+                  <td><strong>Target Customer</strong></td>
+                  <td>Hospitals & Insurers simultaneously.</td>
+                  <td>Insurers / TPAs (primary target).</td>
+                  <td class="resolution-cell"><strong>Resolves conflict of interest.</strong> Insurers seek to prevent billing leaks; hospitals seek to maximize approvals. Trying to sell both at launch destroys trust. Option A has faster sales cycles.</td>
+                </tr>
+                <tr>
+                  <td><strong>Data Strategy</strong></td>
+                  <td>Assumed seamless EHR access.</td>
+                  <td>FDA FAERS + Kaggle Claims synthetic bootstrap.</td>
+                  <td class="resolution-cell"><strong>Addresses data scarcity.</strong> Clinics do not share EHR without a working model proof. Synthetic bootstrap is the only viable path.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tech Stack</strong></td>
+                  <td>Kafka, Kubernetes, MongoDB, Redis, Microservices.</td>
+                  <td>FastAPI, PostgreSQL, Single EC2/Render instance.</td>
+                  <td class="resolution-cell"><strong>Reduces infrastructure overhead.</strong> High-frequency streaming (Kafka) is unnecessary for a static auditor portal. Postgres easily handles current schemas.</td>
+                </tr>
+                <tr>
+                  <td><strong>Compliance</strong></td>
+                  <td>Not addressed in proposal.</td>
+                  <td>DPDP Act 2023, ABDM ABHA APIs, Clinician Gate (HITL).</td>
+                  <td class="resolution-cell"><strong>Critical for healthcare.</strong> Sensitive personal data (SPD) requires de-identification from day one. Clinician signatures limit liability for LLM text.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Card 2: Compliance Mappings -->
+        <div class="glass-card audit-full-card">
+          <div class="panel-header">
+            <h3>Indian Health Regulatory Compliance Strategy</h3>
+          </div>
+          <div class="compliance-grid" id="compliance-cards-container">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
